@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+@theme {
+  --font-inter: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-oxanium: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  
+  --color-primary: #3B82F6;
+  --color-secondary: #EC4899;
+  --color-accent: #10B981;
+  
+  --color-singularity-purple: #9333ea;
+  --color-singularity-teal: #2dd4bf;
+  --color-singularity-pink: #f472b6;
+  
+  --color-ui-bg: #000000;
+  --color-ui-surface: #0a0a0a;
+  --color-ui-border: #1a1a1a;
+  --color-ui-text-heading: #ffffff;
+  --color-ui-text-body: #a1a1aa;
+  --color-ui-text-subtle: #52525b;
+}
+
+:root {
+  --color-bg: #000000;
+  --color-surface: #0a0a0a;
+  --color-border: #1a1a1a;
+  --color-text-heading: #ffffff;
+  --color-text-body: #a1a1aa;
+  --color-text-subtle: #52525b;
+}
+
+@layer base {
+  body {
+    @apply bg-ui-bg text-ui-text-body font-inter antialiased;
+    background-image: 
+      radial-gradient(circle at 50% -20%, rgba(147, 51, 234, 0.15), transparent 80%),
+      radial-gradient(circle at 0% 100%, rgba(45, 212, 191, 0.05), transparent 50%);
+    background-attachment: fixed;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-oxanium tracking-tight;
+  }
+}
+
+@utility bg-gradient-singularity {
+  background: linear-gradient(135deg, #9333ea 0%, #2dd4bf 100%);
+}
+
+@utility text-gradient-singularity {
+  @apply bg-clip-text text-transparent bg-gradient-singularity;
+}
+
+@utility btn-quantum-glow {
+  @apply relative overflow-hidden transition-all duration-300 bg-zinc-900 border border-white/10 hover:border-primary/50 hover:shadow-[0_0_20px_rgba(147,51,234,0.3)];
+}
+
+@utility shadow-glow-primary {
+  box-shadow: 0 0 20px rgba(147, 51, 234, 0.3);
+}
+
+@utility shadow-glow-accent {
+  box-shadow: 0 0 20px rgba(45, 212, 191, 0.3);
+}
+
+@utility shadow-glow-secondary {
+  box-shadow: 0 0 20px rgba(244, 114, 182, 0.3);
+}
+
+@utility shadow-glow-white {
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+@utility form-input-modern {
+  @apply bg-zinc-900/50 border border-white/5 rounded-xl px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary/50 transition-all;
+}
+
+@utility form-input-glow {
+  @apply focus:shadow-[0_0_15px_rgba(147,51,234,0.2)];
+}
+
+@utility animate-pulse-slow {
+  animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@utility animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
